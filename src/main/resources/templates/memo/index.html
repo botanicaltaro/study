@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="jp">
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>タスク一覧</title>
+</head>
+<body>
+    <a th:href="@{memo/new}">作成</a>
+    <p th:if="${memo.isEmpty()}">タスクがありません</p>
+    <ul th:unless="${memo.isEmpty()}">
+        <li th:each="memo: ${memo}">
+            <a th:href="@{memo/{id}/edit(id=${memo.id})}"/>
+            <span th:unless="${memo.done}" th:text="${memo.content}"></span>
+            <s th:if="${memo.done}" th:text="${memo.content}"></s>
+        </li>
+    </ul>
+</body>
+</html>
