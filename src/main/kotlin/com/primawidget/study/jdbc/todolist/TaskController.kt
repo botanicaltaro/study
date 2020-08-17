@@ -1,7 +1,5 @@
-package com.primawidget.study.jdbctodolist
+package com.primawidget.study.jdbc.todolist
 
-import com.primawidget.study.doma2.todolist.MemoCreateForm
-import com.primawidget.study.doma2.todolist.MemoUpdateForm
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -13,20 +11,20 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("tasks")
 class TaskController(private val taskRepository: TaskRepository) {
     @GetMapping("")
-    fun index(model: Model):String{
+    fun index(model: Model): String {
         val tasks = taskRepository.findAll()
-        model.addAttribute("tasks",tasks)
+        model.addAttribute("tasks", tasks)
         return "tasks/index"
     }
 
     @GetMapping("new")
-    fun new(form: TaskCreateForm):String{
+    fun new(form: TaskCreateForm): String {
         return "tasks/new"
     }
 
     @PostMapping("")
-    fun create(@Validated form: TaskCreateForm, bindingResult:BindingResult):String{
-        if(bindingResult.hasErrors()){
+    fun create(@Validated form: TaskCreateForm, bindingResult: BindingResult): String {
+        if (bindingResult.hasErrors()) {
             return "tasks/new"
         }
         val content = requireNotNull(form.content)
@@ -35,7 +33,7 @@ class TaskController(private val taskRepository: TaskRepository) {
     }
 
     @GetMapping("{id}/edit")
-    fun edit(@PathVariable("id")id:Long,form: TaskUpdateForm):String{
+    fun edit(@PathVariable("id") id: Long, form: TaskUpdateForm): String {
         val task = taskRepository.findById(id) ?: throw NotFoundException()
         form.content = task.content
         form.done = task.done
@@ -43,18 +41,18 @@ class TaskController(private val taskRepository: TaskRepository) {
     }
 
     @PatchMapping("{id}")
-    fun update(@PathVariable("id")id:Long, @Validated form: TaskUpdateForm, bindingResult: BindingResult):String {
+    fun update(@PathVariable("id") id: Long, @Validated form: TaskUpdateForm, bindingResult: BindingResult): String {
         if (bindingResult.hasErrors()) {
             return "tasks/edit"
         }
-        val task = taskRepository.findById(id) ?:throw NotFoundException()
-        val newTask = task.copy(content = requireNotNull(form.content),done=(form.done))
+        val task = taskRepository.findById(id) ?: throw NotFoundException()
+        val newTask = task.copy(content = requireNotNull(form.content), done = (form.done))
         taskRepository.update(newTask)
-    return "redirect:/tasks"
+        return "redirect:/tasks"
     }
 
     @ExceptionHandler(NotFoundException::class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    fun handleNotFoundException():String = "tasks/not_found"
+    fun handleNotFoundException(): String = "tasks/not_found"
 
 }

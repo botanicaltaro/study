@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="jp">
 <html xmlns:th="http://www.thymleaf.org">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <title>トップ一覧</title>
 </head>
 <body>
-    <a th:href="@{memo}">メモ作成</a>
-    <a th:href="@{tasks}">タスク作成</a>
+    <h1>メインメニュー</h1>
+    <div id="mainMenu">
+        <ul>
+            <li><a th:href="@{memo}">メモ作成</a></li>
+            <li><a th:href="@{tasks}">タスク作成</a></li>
+        </ul>
+    </div>
 </body>
 </html>

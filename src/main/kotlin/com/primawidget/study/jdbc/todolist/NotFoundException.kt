@@ -1,5 +1,5 @@
-package com.primawidget.study.jdbctodolist
+package com.primawidget.study.jdbc.todolist
 
 import java.lang.RuntimeException
 
-class NotFoundException:RuntimeException()
+class NotFoundException : RuntimeException()

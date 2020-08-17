@@ -1,4 +1,4 @@
-package com.primawidget.study.jdbctodolist
+package com.primawidget.study.jdbc.todolist
 
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
@@ -6,7 +6,7 @@ import javax.validation.constraints.Size
 class TaskUpdateForm {
     @NotBlank
     @Size(max = 20)
-    var content:String? = null
+    var content: String? = null
 
-    var done:Boolean = false
+    var done: Boolean = false
 }

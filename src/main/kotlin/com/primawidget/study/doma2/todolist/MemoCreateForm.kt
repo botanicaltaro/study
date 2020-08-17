@@ -6,5 +6,5 @@ import javax.validation.constraints.Size
 class MemoCreateForm {
     @NotBlank
     @Size(max = 20)
-    var content:String? = null
+    var content: String? = null
 }

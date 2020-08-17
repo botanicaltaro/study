@@ -6,7 +6,7 @@ import javax.validation.constraints.Size
 class MemoUpdateForm {
     @NotBlank
     @Size(max = 20)
-    var content:String? = null
+    var content: String? = null
 
-    var done:Boolean = false
+    var done: Boolean = false
 }

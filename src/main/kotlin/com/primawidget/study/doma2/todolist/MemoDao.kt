@@ -8,13 +8,17 @@ import org.seasar.doma.jdbc.Result
 @ConfigAutowireable
 interface MemoDao {
     @Insert
-    fun create(memoEntity: MemoEntity):Result<MemoEntity>
+    fun create(memoEntity: MemoEntity): Result<MemoEntity>
+
     @Update
-    fun update(memoEntity: MemoEntity):Result<MemoEntity>
+    fun update(memoEntity: MemoEntity): Result<MemoEntity>
+
     @Select
-    fun findAll():List<MemoEntity>
+    fun findAll(): List<MemoEntity>
+
     @Select
-    fun findById(id:Long): MemoEntity?
+    fun findById(id: Long): MemoEntity?
+
     @Delete
-    fun delete(memoEntity: MemoEntity):Result<MemoEntity>
+    fun delete(memoEntity: MemoEntity): Result<MemoEntity>
 }
