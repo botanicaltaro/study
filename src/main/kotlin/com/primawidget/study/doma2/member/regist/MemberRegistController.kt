@@ -25,18 +25,18 @@ class MemberRegistController {
 
     @GetMapping("")
     fun index(form: MemberRegistForm): String {
-        return "member/regist/memberRegist"
+        return "member/regist/memberregist"
     }
 
     @PostMapping("")
     fun regist(@Validated form: MemberRegistForm, bindingResult: BindingResult): String {
         if (bindingResult.hasErrors()) {
-            return "memberRegist.html"
+            return "memberregist.html"
         }
         var memoEntity =memberRegistDxo.formConvertEntity(form)
 
         memberRegistDao.regist(memoEntity)
-        return "redirect:memberRegist.html"
+        return "redirect:memberregist.html"
     }
 
     @ExceptionHandler(NotFoundException::class)

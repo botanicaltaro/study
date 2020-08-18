@@ -6,7 +6,7 @@
     <title>会員登録</title>
 </head>
 <body>
-<form th:method="post" th:action="@{./}" th:object="${memberRegistForm}">
+<form th:method="post" th:action="@{./regist}" th:object="${memberRegistForm}">
     <table>
         <tr>
             <td>
@@ -28,6 +28,34 @@
                     <select id="memberAge" name="memberAge">
                             <option th:each="i : ${#numbers.sequence(0, 120)}" th:value="${i}" th:text="${i}"th:selected="${i==30}"></option>
                     </select>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    郵便番号:<input type="text" th:field="*{memberZipCode}"/>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    住所:<input type="text" th:field="*{memberAddress}"/>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    メールアドレス:<input type="email" th:field="*{memberMailAddress}"/>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    パスワード:<input type="password" th:field="*{memberPassword}"/>
                 </label>
             </td>
         </tr>

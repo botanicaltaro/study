@@ -4,7 +4,7 @@ import org.seasar.doma.*
 import java.time.LocalDateTime
 
 @Entity(immutable = true)
-@Table(name = "memberInfo")
+@Table(name = "memberinfo")
 data class MemberRegistEntity(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
