@@ -14,10 +14,13 @@ import com.primawidget.study.doma2.todolist.MemoCreateForm
 import java.time.LocalDateTime
 
 @Controller
+@RequestMapping("member/confirm")
 class MemberConfirmController {
 
-
-
+    @GetMapping("")
+    fun index(form:MemberConfirmForm): String {
+        return "member/confirm/confirm"
+    }
 
     @ExceptionHandler(NotFoundException::class)
     @ResponseStatus(HttpStatus.NOT_FOUND)

@@ -4,9 +4,10 @@ import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 plugins {
 	id("org.springframework.boot") version "2.4.0-SNAPSHOT"
 	id("io.spring.dependency-management") version "1.0.9.RELEASE"
-	id("org.jetbrains.kotlin.kapt") version "1.2.71"
-	kotlin("jvm") version "1.3.41"
-	kotlin("plugin.spring") version "1.3.41"
+
+	kotlin("jvm") version "1.4.0"
+	kotlin("plugin.spring") version "1.4.0"
+	id("org.jetbrains.kotlin.kapt") version "1.4.0"
 }
 
 group = "com.primawidget"
@@ -78,3 +79,5 @@ tasks.withType<KotlinCompile> {
 		jvmTarget = "1.8"
 	}
 }
+
+

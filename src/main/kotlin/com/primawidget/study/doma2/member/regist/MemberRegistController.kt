@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("member/regist")
 class MemberRegistController {
 
-    //ä¼šå“¡ç™»éŒ²Dao
+    //‰ïˆõ“o˜^Dao
     @Autowired
     lateinit var memberRegistDao: MemberRegistDao
-    //ä¼šå“¡ç™»éŒ²Dxo
+    //‰ïˆõ“o˜^Dxo
     @Autowired
     lateinit var memberRegistDxo:MemberRegistDxo
 
@@ -32,12 +32,12 @@ class MemberRegistController {
         var memoEntity =memberRegistDxo.formConvertEntity(form)
 
         memberRegistDao.regist(memoEntity)
-        return "member/regist/confirm"
+        return "redirect:/member/confirm"
     }
 
     @PostMapping("confirm")
     fun confirm(form: MemberRegistForm): String {
-        return "member/regist/confirm"
+        return "confirm"
     }
 
     @ExceptionHandler(NotFoundException::class)
